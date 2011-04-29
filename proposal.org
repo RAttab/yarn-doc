@@ -1,0 +1,102 @@
+#+TITLE: LOG792 - Proposition de Projet
+
+* Speculative Multithreading.
+A generic software only implementation.
+Une implémentation purement logiciel et générique.
+
+** TODO Problématique et contexte
+*** TODO Seq to para
+Parallelising is hard and is pretty hard to get right in some languages due to poor memory models and synchronisation primitives. Algo can also become extremely complex.
+
+*** TODO Automatic para
+Usual automatic para tries really hard to use static analysis to extract para. Sadly there are many cases of partial or almost fully parallelisable code that can't be detected during compilation.
+
+*** TODO Current SMT
+Current research on SMT usually only deal with specific use case or relies heavily on hardware additions to get things done.
+
+
+** TODO Objectifs du projet
+The project as a whole is too large to be fully completed during the timeframe for this project. So instead we aim at building a solid base that can be used to gradually build the full system.
+
+*** TODO Kernel
+Build a solid and fast kernel to detect run-time dependencies violations.
+
+*** TODO Code injection
+LLVM proof of concept capable of handling simple loops.
+
+*** TODO Optimizer
+This isn't a necessary component to have a working system so we will only limit ourself to documenting and planning the runtime profiler and code optimizer.
+
+
+** TODO Méthodologie
+
+*** Iterative approach
+There are several risks and unkown associated with some of the key components (see risk section) which makes it hard to properly scope how much can be done during this project.
+To compensate, we'll heavily iterate constructing bit by bit each key components.
+
+*** Profiling & optimization
+Heavy performance test at each iteration to ensure we get proper speed-ups.
+This also includes the construction/research of benchmarks
+
+*** High level doc
+We'll create high level docs (vision, srs) to describe the problems we aim to fix.
+
+*** Low level docs
+To ensure corectness, we'll create a series of docs (arch, algo desc & proofs) to properly describe the internals.
+
+
+** DONE Composition de l'équipe et rôles.
+N/A
+
+
+** TODO Livrables et Planification
+*** TODO Description des artéfacts
+
+| Artefact       | Description                                                   |
+|----------------+---------------------------------------------------------------|
+| Vision         | Description of the problem and needs being filled             |
+| SRS            | Description of the specs of our system                        |
+| Arch           | Description of the components and their interaction           |
+| Algo & Proofs  | Description of the numurous homebrewed data structures        |
+|                | along with the proofs needed to ensure the correctness of the |
+|                | different concurrent algorithms.                              |
+| Something else | Do we really need 5?                                          |
+
+
+*** TODO Planifications
+High level desc of Annexe A.
+
+
+** TODO Risques
+
+| Risk                 | Impact | Prob   | Mitigation                                   |
+|----------------------+--------+--------+----------------------------------------------|
+| Not enough speed-up  | High   | High   | Lots of profiling, testing and optimisation  |
+|                      |        |        | with standard benchmarks. Assign an entire   |
+|                      |        |        | iteration to this.                           |
+| Concurrency problems | Medium | Medium | Fall back on simpler lock algorithms instead |
+|                      |        |        | of the more complicated lock-free algos.     |
+|                      |        |        | This could negetively impact the speed-up.   |
+| Slowdown dev because | Low    | High   | Plan for some extra learning time during the |
+| of unknown tools     |        |        | code injection phase since this mainly       |
+|                      |        |        | affects the LLVM and clang tool.             |
+| Can't use LLVM tools | Medium | Low    | Assign extra iteration to create my own.     |
+| Loss of code and doc | High   | Low    | Use git and github for version control and   |
+|                      |        |        | backup.                                      |
+
+
+** TODO Techniques et outils
+
+** TODO Références
+*** "Art of MP Prog"
+*** "Dragon Book"
+*** Gotta fish more research docs.
+
+
+** TODO Annexe
+
+*** TODO A. Plan de travail
+
+| # | Start | End | Est | Task | Artefact |
+|---+-------+-----+-----+------+----------|
+| 1 |       |     |     |      |          |
