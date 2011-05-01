@@ -1,0 +1,10 @@
+#+TITLE: Glossary
+
+| Term           | Definition |
+|----------------+------------|
+| Speculative    |            |
+| Multithreading |            |
+| software only  |            |
+| source code    |            |
+| memory model   |            |
+| algorithm      |            |
