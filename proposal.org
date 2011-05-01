@@ -1,11 +1,12 @@
-#+TITLE: LOG792 - Proposition de Projet
+#+TITLE: LOG792 - Project Proposal
 
-* Speculative Multithreading.
+* A Speculative Multithreading System
 A generic software only implementation.
-Une implémentation purement logiciel et générique.
 
-** TODO Problématique et contexte
-*** TODO Seq to para
+** TODO Problems and Context
+This section will describe the current state of parallelising a sequential program and the various problems that we aim to solve with the proposed project.
+
+*** TODO Manual Parallelization
 Parallelising is hard and is pretty hard to get right in some languages due to poor memory models and synchronisation primitives. Algo can also become extremely complex.
 
 *** TODO Automatic para
@@ -15,10 +16,10 @@ Usual automatic para tries really hard to use static analysis to extract para. S
 Current research on SMT usually only deal with specific use case or relies heavily on hardware additions to get things done.
 
 
-** TODO Objectifs du projet
+** TODO Goals for the Project
 The project as a whole is too large to be fully completed during the timeframe for this project. So instead we aim at building a solid base that can be used to gradually build the full system.
 
-*** TODO Kernel
+*** TODO Run-time Kernel
 Build a solid and fast kernel to detect run-time dependencies violations.
 
 *** TODO Code injection
@@ -28,8 +29,7 @@ LLVM proof of concept capable of handling simple loops.
 This isn't a necessary component to have a working system so we will only limit ourself to documenting and planning the runtime profiler and code optimizer.
 
 
-** TODO Méthodologie
-
+** TODO Méthodology
 *** Iterative approach
 There are several risks and unkown associated with some of the key components (see risk section) which makes it hard to properly scope how much can be done during this project.
 To compensate, we'll heavily iterate constructing bit by bit each key components.
@@ -42,7 +42,7 @@ This also includes the construction/research of benchmarks
 We'll create high level docs (vision, srs) to describe the problems we aim to fix.
 
 *** Low level docs
-To ensure corectness, we'll create a series of docs (arch, algo desc & proofs) to properly describe the internals.
+To ensure correctness, we'll create a series of docs (arch, algo desc & proofs) to properly describe the internals.
 
 
 ** DONE Composition de l'équipe et rôles.
@@ -52,15 +52,15 @@ N/A
 ** TODO Livrables et Planification
 *** TODO Description des artéfacts
 
-| Artefact       | Description                                                   |
-|----------------+---------------------------------------------------------------|
-| Vision         | Description of the problem and needs being filled             |
-| SRS            | Description of the specs of our system                        |
-| Arch           | Description of the components and their interaction           |
-| Algo & Proofs  | Description of the numurous homebrewed data structures        |
-|                | along with the proofs needed to ensure the correctness of the |
-|                | different concurrent algorithms.                              |
-| Something else | Do we really need 5?                                          |
+| Artefact      | Description                                                        |
+|---------------+--------------------------------------------------------------------|
+| Vision        | Description of the problem and needs being filled                  |
+| SRS           | Description of the specs of our system                             |
+| Arch          | Description of the components and their interaction                |
+| Algo & Proofs | Description of the numurous homebrewed data structures             |
+|               | along with the proofs needed to ensure the correctness of the      |
+|               | different concurrent algorithms.                                   |
+| Test & perf   | Description of the testing methodology and the performance results |
 
 
 *** TODO Planifications
@@ -85,7 +85,21 @@ High level desc of Annexe A.
 |                      |        |        | backup.                                      |
 
 
-** TODO Techniques et outils
+** DONE Techniques and Tools
+This section describes the various tools that will be used to develop and manage the project.
+
+*** DONE Project Management
+For the size of this project, emacs' org-mode will be enough to manage the project. It is not necessary to use a more robust tool like Microsoft Project because all of our features have to be developped in a sequence. Org-mode's file are also much easier to manage in versionning software like git or svn.
+
+*** DONE Document Control
+Git will be used as version control for the source code and documents of our project. Since the resulting will be open sourced under the FreeBSD license, github.com will be used as a remote repository for the project at no extra costs. The github repositories for the project can be found here:
+
+**** DONE Documents: https://github.com/RAttab/yarn-doc
+**** DONE Source code: https://github.com/RAttab/yarn
+
+*** DONE Code Development
+The project will mostly use the standard linux toolchain for the development. This includes make, gcc, glibc, pthreads, etc. The code will also adhere to either the clean C or the C99 standard to keep it as portable as possible. The code injection part of the system wil be developped using the clang front-end for LLVM and should be conformant to the LLVM coding standards. 
+
 
 ** TODO Références
 *** "Art of MP Prog"
