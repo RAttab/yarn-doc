@@ -52,15 +52,21 @@ N/A
 ** TODO Livrables et Planification
 *** TODO Description des artéfacts
 
-| Artefact      | Description                                                        |
-|---------------+--------------------------------------------------------------------|
-| Vision        | Description of the problem and needs being filled                  |
-| SRS           | Description of the specs of our system                             |
-| Arch          | Description of the components and their interaction                |
-| Algo & Proofs | Description of the numurous homebrewed data structures             |
-|               | along with the proofs needed to ensure the correctness of the      |
-|               | different concurrent algorithms.                                   |
-| Test & perf   | Description of the testing methodology and the performance results |
+| Artefact       | Description                                                                                          |
+|----------------+------------------------------------------------------------------------------------------------------|
+| Vision         | Description of the problem and needs being filled                                                    |
+|----------------+------------------------------------------------------------------------------------------------------|
+| SRS            | Description of the specs of our system                                                               |
+|----------------+------------------------------------------------------------------------------------------------------|
+| Arch           | Description of the components and their interaction                                                  |
+|----------------+------------------------------------------------------------------------------------------------------|
+| Algos & Proofs | Description of the concurrent algorithms and data structures accompagnied with proof of correctness. |
+|----------------+------------------------------------------------------------------------------------------------------|
+| Test & perf    | Description of the testing methodology and the performance results                                   |
+|----------------+------------------------------------------------------------------------------------------------------|
+| Code           | Code for both the runtime kernel and the code injection modules.                                     |
+|----------------+------------------------------------------------------------------------------------------------------|
+
 
 
 *** TODO Planifications
@@ -69,20 +75,29 @@ High level desc of Annexe A.
 
 ** TODO Risques
 
-| Risk                 | Impact | Prob   | Mitigation                                   |
-|----------------------+--------+--------+----------------------------------------------|
-| Not enough speed-up  | High   | High   | Lots of profiling, testing and optimisation  |
-|                      |        |        | with standard benchmarks. Assign an entire   |
-|                      |        |        | iteration to this.                           |
-| Concurrency problems | Medium | Medium | Fall back on simpler lock algorithms instead |
-|                      |        |        | of the more complicated lock-free algos.     |
-|                      |        |        | This could negetively impact the speed-up.   |
-| Slowdown dev because | Low    | High   | Plan for some extra learning time during the |
-| of unknown tools     |        |        | code injection phase since this mainly       |
-|                      |        |        | affects the LLVM and clang tool.             |
-| Can't use LLVM tools | Medium | Low    | Assign extra iteration to create my own.     |
-| Loss of code and doc | High   | Low    | Use git and github for version control and   |
-|                      |        |        | backup.                                      |
+| Risk                         | Impact | Probability | Mitigation                                                                               |
+|------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
+| Project objectives           | Low    | Low         | Use a vision document to clearly define the objectives.                                  |
+|------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
+| Hardware constraints         | Medium | Low         | Request specialized hardware from the school.                                            |
+|------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
+| Reusable components          | Medium | Medium      | Research data-flow analysis algorithms in case we can't reuse the ones provided by LLVM. |
+|------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
+| Project size                 | Medium | Medium      | Break the implementation in short 1 week chunks with plenty of testing.                  |
+|------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
+| Requirements stability       | High   | Low         | Use a specification document to clearly define the requirements.                         |
+|------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
+| Testability                  | High   | Medium      | Allocate extra time to isolate and test difficult and critical areas.                    |
+|------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
+| Implementation difficulty    | Medium | High        | Fallback to simpler algorithms if necessary. Could negatively affect performances.       |
+|------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
+| Performance factors          | High   | High        | Allocate an iteration for performance testing and optimization.                          |
+|------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
+| External HW or SW interfaces | Low    | Medium      | Segregate/proxy any potential portability issues and test on multiple platforms.         |
+|------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
+| Technology experience        | High   | High        | Locate and read available documentation.                                                 |
+|------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
+| Maturity of Technology       | Medium | High        | Locate and read research papers available on the subject.                                |
 
 
 ** DONE Techniques and Tools
@@ -111,6 +126,11 @@ The project will mostly use the standard linux toolchain for the development. Th
 
 *** TODO A. Plan de travail
 
-| # | Start | End | Est | Task | Artefact |
-|---+-------+-----+-----+------+----------|
-| 1 |       |     |     |      |          |
+| # | Week | Effort | Task/Milestone                       | Deliverables           |
+|---+------+--------+--------------------------------------+------------------------|
+|   |    1 |      0 | Delivery of "Fiche de renseignement" | Fiche de renseignement |
+|   |    1 |      4 | High level project conception        | Project proposal       |
+|   |    2 |      5 | Finish and review project conception | Project proposal       |
+|   |    2 |      4 | Implement core data structure        | Performance analysis   |
+|   |    3 |      0 | Deliver project proposal             | Project proposal       |
+|   |    3 |        |                                      |                        |
