@@ -49,8 +49,9 @@ To ensure correctness, we'll create a series of docs (arch, algo desc & proofs) 
 N/A
 
 
-** TODO Livrables et Planification
-*** TODO Description des artéfacts
+** DONE Livrables et Planification
+
+*** DONE Description des artéfacts
 
 | Artefact       | Description                                                                                          |
 |----------------+------------------------------------------------------------------------------------------------------|
@@ -69,11 +70,11 @@ N/A
 
 
 
-*** TODO Planifications
+*** DONE Planifications
 High level desc of Annexe A.
 
 
-** TODO Risques
+** DONE Risques
 
 | Risk                         | Impact | Probability | Mitigation                                                                               |
 |------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
@@ -113,24 +114,46 @@ Git will be used as version control for the source code and documents of our pro
 **** DONE Source code: https://github.com/RAttab/yarn
 
 *** DONE Code Development
-The project will mostly use the standard linux toolchain for the development. This includes make, gcc, glibc, pthreads, etc. The code will also adhere to either the clean C or the C99 standard to keep it as portable as possible. The code injection part of the system wil be developped using the clang front-end for LLVM and should be conformant to the LLVM coding standards. 
+The project will mostly use the standard linux toolchain for the development. This includes autotools, gcc, glibc, pthreads, etc. The code will also adhere to either the clean C or the C99 standard to keep it as portable as possible. The code injection part of the system wil be developped using the clang front-end for LLVM and should be conformant to the LLVM coding standards. 
 
 
 ** TODO Références
 *** "Art of MP Prog"
 *** "Dragon Book"
-*** Gotta fish more research docs.
+*** Gotta fish more research docs
 
 
-** TODO Annexe
+** DONE Annexe
 
-*** TODO A. Plan de travail
+*** DONE A. Plan de travail
+Note that the effort present proportions more then actual efforts.
+The start and end column represents the range of weeks inclusively that the task will be accomplished.
 
-| # | Week | Effort | Task/Milestone                       | Deliverables           |
-|---+------+--------+--------------------------------------+------------------------|
-|   |    1 |      0 | Delivery of "Fiche de renseignement" | Fiche de renseignement |
-|   |    1 |      4 | High level project conception        | Project proposal       |
-|   |    2 |      5 | Finish and review project conception | Project proposal       |
-|   |    2 |      4 | Implement core data structure        | Performance analysis   |
-|   |    3 |      0 | Deliver project proposal             | Project proposal       |
-|   |    3 |        |                                      |                        |
+|     # | Start | End | Effort | Task/Milestone                      | Deliverables        |
+|-------+-------+-----+--------+-------------------------------------+---------------------|
+|     1 |     1 |   5 |     20 | Analysis                            |                     |
+|   1.1 |     1 |   3 |      5 | Scoped project planification        | Project Proposal    |
+|   1.2 |     3 |   5 |     15 | Full system analysis                | Vision              |
+|-------+-------+-----+--------+-------------------------------------+---------------------|
+|     2 |     6 |  11 |     40 | Conception                          |                     |
+|   2.1 |     6 |   8 |     20 | Elicitation of system specification | SRS                 |
+|   2.2 |     9 |  11 |     20 | Definition of module interaction    | Architecture        |
+|-------+-------+-----+--------+-------------------------------------+---------------------|
+|     3 |     1 |  14 |     70 | Development                         |                     |
+|   3.1 |     1 |   7 |     35 | Runtime-kernel module               |                     |
+| 3.1.1 |     1 |   1 |      5 | Conception                          | Algo desc & proofs  |
+| 3.1.2 |     2 |   6 |     15 | Implementation                      | Code                |
+| 3.1.3 |     3 |   7 |     15 | QA                                  | Test & perf         |
+|   3.2 |     8 |  14 |     35 | Code injection module               |                     |
+| 3.2.1 |     8 |  11 |     20 | Conception & Research               | Architecture        |
+| 3.2.2 |     9 |  14 |     15 | Implementation                      | Code                |
+|-------+-------+-----+--------+-------------------------------------+---------------------|
+|     4 |    12 |  15 |     10 | Documentation                       |                     |
+|   4.1 |    12 |  14 |      4 | Project presentation and demo       | Presentation slides |
+|   4.2 |     7 |  15 |      6 | Project synthesis                   | Final repport       |
+| 4.2.1 |    ?? |  ?? |      1 | Synthesis outline                   | Progress Repport    |
+| 4.2.2 |    13 |  15 |      5 | Synthesis repport                   | Synthesis repport   |
+|-------+-------+-----+--------+-------------------------------------+---------------------|
+| Total |     1 |  15 |    140 |                                     |                     |
+|-------+-------+-----+--------+-------------------------------------+---------------------|
+
