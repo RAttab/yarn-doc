@@ -3,46 +3,42 @@
 * A Speculative Multithreading System
 A generic software only implementation.
 
-** TODO Problems and Context
-This section will describe the current state of parallelising a sequential program and the various problems that we aim to solve with the proposed project.
+** DONE Problems and Context
+With the recent widespread availability of multi-core processors, there has been an increasing demand for software that can make full use of the hardware it is running on. To meet the demand, multiple tools have been created to help programmers design and implement parallel code. Unfortunately, there exists a large body of existing programs that were not designed to work in a parallel environement. These programs are generally difficult to parallelize due to their size and complexity.
 
-*** TODO Manual Parallelization
-Parallelising is hard and is pretty hard to get right in some languages due to poor memory models and synchronisation primitives. Algo can also become extremely complex.
+This section explores the various methods used to parallelize a sequential program and the problems that the proposed tool aims to solve.
 
-*** TODO Automatic para
-Usual automatic para tries really hard to use static analysis to extract para. Sadly there are many cases of partial or almost fully parallelisable code that can't be detected during compilation.
+*** DONE Manual Parallelization
+The first method is to do the parallezisation by hand. This involves:
 
-*** TODO Current SMT
-Current research on SMT usually only deal with specific use case or relies heavily on hardware additions to get things done.
+1. Finding a section of code that is both a bottleneck and is inherently parallelizable.
+2. Split the section of code into seperate tasks that can be executed in parallel.
+3. Use the primitives provided by the current platform to run the tasks in parallel.
+4. Synchronize the communications between the diferent agents running the tasks.
 
+Each of these steps can be difficult to implement correctly. For example, a bottleneck that is inherently not parallelizable will usually contain a lot of dependency in it's computation. In order to parallelize such a piece of code and keep its computation coherent, a large amount of synchronization would need to be introduced. This would negate most if not all the benefits of the parallelization. Since it's not always obvious if a section of code is inherently parallelizable, a programmer could waste a lot of effort for very little if any benefits. The extra complexity could also introduce defects in the programs which can be difficult to detect and correct. Tools like OpenMP have been created to alleviate some of these problems but they still require a considerable amount of human intervention because they can't solve all the steps involved in parallelizing a program. 
 
-** TODO Goals for the Project
-The project as a whole is too large to be fully completed during the timeframe for this project. So instead we aim at building a solid base that can be used to gradually build the full system.
+*** DONE Automatic Parallelization
+Because of all the difficulties associated with manual parallelization, another type of tools have been developped with the aim of automatically finding and parallelizing bottlenecks. These are usually part of a compiler and are implemented as optimization passes. Since the intent of the programmer is usually lost during the compilation process, this approach requires that the optimizations are conservative in nature to keep the program coherent. The information lost during the compilation process means that the process is very likely to miss some good parallelization oportunities. 
 
-*** TODO Run-time Kernel
-Build a solid and fast kernel to detect run-time dependencies violations.
-
-*** TODO Code injection
-LLVM proof of concept capable of handling simple loops.
-
-*** TODO Optimizer
-This isn't a necessary component to have a working system so we will only limit ourself to documenting and planning the runtime profiler and code optimizer.
+*** DONE Current SMT
+To solve the problems associated with a purely compiler based parallization scheme, another type of tool has been developped. Speculative multi-threading uses a run-time component as well as a compiler based component to attempt to parallelize as much of a program as possible. Unfortunately, this approach is still an academic concept that doesn't have any robust implementation usable in the real world. Most of the research papers also concentrates on specialised hardware assisted schemes which are not widely available.
 
 
-** TODO Méthodology
-*** Iterative approach
-There are several risks and unkown associated with some of the key components (see risk section) which makes it hard to properly scope how much can be done during this project.
-To compensate, we'll heavily iterate constructing bit by bit each key components.
+** DONE Goals for the Project
+The goal of the project is to provide a robust foundation for a speculative multi-threading system which doesn't rely on any specialised hardware. This system will use both a runtime component as well as a compiler component to automatically parallelize a program with minimal user intervention.
 
-*** Profiling & optimization
-Heavy performance test at each iteration to ensure we get proper speed-ups.
-This also includes the construction/research of benchmarks
+Since it's not feasible to develop the full system during the 15 weeks allocated to this project, we will instead focus on building the key components. These key components will act both as a proof of concept and a solid foundation to construct the more advanced features. This means that the system will focus on the performances of the system by only considering a small subset of the target language.
 
-*** High level doc
-We'll create high level docs (vision, srs) to describe the problems we aim to fix.
+By the end of the 15th week, the system should be capable of automatically parallelizing a simple sample program and a recomendation will be made as to whether speculative multi-threading is a viable parallelization scheme in a real world scenario.
 
-*** Low level docs
-To ensure correctness, we'll create a series of docs (arch, algo desc & proofs) to properly describe the internals.
+
+** DONE Méthodology
+This section will describe the development methodology that will be used during the course of the project.
+
+To ensure the quality and good performance of the project, the components of the modules will be implemented in short 1 week iterations. During these iterations a small set of features will be selected to be implemented and tested with unit tests. Since performance is a key factor in the system, the system will be benchmarked starting at key milestone and then after every substantial modification of the code. Where appropriate, extra time will be scheduled for researching the workings of a specific tool or the appropriate algorithm to use for a given problem.
+
+Since most of the implementation details has been fleshed out during the research process, the code will be implemented in parallel with the high level documentation. Our short iteration should still keep the development agile enough to quickly address any problems that might be raised during the redaction of the various high level documents. There are however a set of low level documents that depends on the results of the coding process. These will be integrated more tightly into the development process and will be part of the deliverables for the relevant iteration.
 
 
 ** DONE Composition de l'équipe et rôles.
@@ -99,6 +95,7 @@ High level desc of Annexe A.
 | Technology experience        | High   | High        | Locate and read available documentation.                                                 |
 |------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
 | Maturity of Technology       | Medium | High        | Locate and read research papers available on the subject.                                |
+|------------------------------+--------+-------------+------------------------------------------------------------------------------------------|
 
 
 ** DONE Techniques and Tools
@@ -108,7 +105,7 @@ This section describes the various tools that will be used to develop and manage
 For the size of this project, emacs' org-mode will be enough to manage the project. It is not necessary to use a more robust tool like Microsoft Project because all of our features have to be developped in a sequence. Org-mode's file are also much easier to manage in versionning software like git or svn.
 
 *** DONE Document Control
-Git will be used as version control for the source code and documents of our project. Since the resulting will be open sourced under the FreeBSD license, github.com will be used as a remote repository for the project at no extra costs. The github repositories for the project can be found here:
+Git will be used as version control for the source code and documents of our project. Since the resulting will be open sourced under the FreeBSD license, github.com will be used as a remote repository at no extra costs. The relevant repositories can be found here:
 
 **** DONE Documents: https://github.com/RAttab/yarn-doc
 **** DONE Source code: https://github.com/RAttab/yarn
@@ -126,8 +123,7 @@ The project will mostly use the standard linux toolchain for the development. Th
 ** DONE Annexe
 
 *** DONE A. Plan de travail
-Note that the effort present proportions more then actual efforts.
-The start and end column represents the range of weeks inclusively that the task will be accomplished.
+Note that the effort present proportions more then actual efforts. The start and end column represents the range of weeks inclusively that the task will be accomplished.
 
 |     # | Start | End | Effort | Task/Milestone                      | Deliverables        |
 |-------+-------+-----+--------+-------------------------------------+---------------------|
