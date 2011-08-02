@@ -1,0 +1,92 @@
+INFO  - Yarn Benchmark
+INFO  - 	Speculative threads = 24
+INFO  - 	Time range = [0ns, 1000000ns]
+INFO  - 	Speedup min = 0.50
+INFO  - 	Speedup delta = 0.50
+INFO  - 	Log file = tests-result/time-3.csv
+INFO  - 
+INFO  - Reference point:
+INFO  - 	Op count: 100
+INFO  - 	FP Mul: 394ns
+INFO  - 	FP Div: 1394ns
+INFO  - 
+INFO  - Warming up...
+INFO  - 
+INFO  - Executing the benchmark...
+INFO  - ( 1 / 24) = [0.098835, 0.997514]
+INFO  - ( 1, 0.50) =      5185ns
+INFO  - ( 1, 1.00) =   1000000ns
+INFO  - ( 2 / 24) = [0.064145, 0.995671]
+INFO  - ( 2, 0.50) =      8085ns
+INFO  - ( 2, 1.00) =   1000000ns
+WARN  - target=1.500000 > max=0.995671)
+INFO  - ( 3 / 24) = [0.041699, 0.994449]
+INFO  - ( 3, 0.50) =      9649ns
+INFO  - ( 3, 1.00) =   1000000ns
+WARN  - target=1.500000 > max=0.994449)
+INFO  - ( 4 / 24) = [0.020323, 0.979637]
+INFO  - ( 4, 0.50) =     12585ns
+INFO  - ( 4, 1.00) =   1000000ns
+WARN  - target=1.500000 > max=0.979637)
+INFO  - ( 5 / 24) = [0.013809, 0.970723]
+INFO  - ( 5, 0.50) =     15311ns
+INFO  - ( 5, 1.00) =   1000000ns
+WARN  - target=1.500000 > max=0.970723)
+INFO  - ( 6 / 24) = [0.009135, 0.944315]
+INFO  - ( 6, 0.50) =     25888ns
+INFO  - ( 6, 1.00) =   1000000ns
+WARN  - target=1.500000 > max=0.944315)
+INFO  - ( 7 / 24) = [0.008284, 0.874964]
+INFO  - ( 7, 0.50) =     33181ns
+WARN  - target=1.000000 > max=0.874964)
+INFO  - ( 8 / 24) = [0.005994, 0.843854]
+INFO  - ( 8, 0.50) =     43332ns
+WARN  - target=1.000000 > max=0.843854)
+INFO  - ( 9 / 24) = [0.005410, 0.779307]
+INFO  - ( 9, 0.50) =     53979ns
+WARN  - target=1.000000 > max=0.779307)
+INFO  - (10 / 24) = [0.004277, 0.771203]
+INFO  - (10, 0.50) =     65125ns
+WARN  - target=1.000000 > max=0.771203)
+INFO  - (11 / 24) = [0.003507, 0.749062]
+INFO  - (11, 0.50) =     84286ns
+WARN  - target=1.000000 > max=0.749062)
+INFO  - (12 / 24) = [0.003907, 0.701568]
+INFO  - (12, 0.50) =     85241ns
+WARN  - target=1.000000 > max=0.701568)
+INFO  - (13 / 24) = [0.002919, 0.698124]
+INFO  - (13, 0.50) =     93546ns
+WARN  - target=1.000000 > max=0.698124)
+INFO  - (14 / 24) = [0.002253, 0.684801]
+INFO  - (14, 0.50) =    126871ns
+WARN  - target=1.000000 > max=0.684801)
+INFO  - (15 / 24) = [0.002503, 0.683418]
+INFO  - (15, 0.50) =    140258ns
+WARN  - target=1.000000 > max=0.683418)
+INFO  - (16 / 24) = [0.001763, 0.678475]
+INFO  - (16, 0.50) =    175361ns
+WARN  - target=1.000000 > max=0.678475)
+INFO  - (17 / 24) = [0.001635, 0.678580]
+INFO  - (17, 0.50) =    182470ns
+WARN  - target=1.000000 > max=0.678580)
+INFO  - (18 / 24) = [0.001473, 0.689917]
+INFO  - (18, 0.50) =    180986ns
+WARN  - target=1.000000 > max=0.689917)
+INFO  - (19 / 24) = [0.001368, 0.683222]
+INFO  - (19, 0.50) =    196246ns
+WARN  - target=1.000000 > max=0.683222)
+INFO  - (20 / 24) = [0.001408, 0.681788]
+INFO  - (20, 0.50) =    198526ns
+WARN  - target=1.000000 > max=0.681788)
+INFO  - (21 / 24) = [0.001283, 0.687077]
+INFO  - (21, 0.50) =    251855ns
+WARN  - target=1.000000 > max=0.687077)
+INFO  - (22 / 24) = [0.001237, 0.686314]
+INFO  - (22, 0.50) =    255863ns
+WARN  - target=1.000000 > max=0.686314)
+INFO  - (23 / 24) = [0.001213, 0.686831]
+INFO  - (23, 0.50) =    261484ns
+WARN  - target=1.000000 > max=0.686831)
+INFO  - (24 / 24) = [0.001052, 0.682538]
+INFO  - (24, 0.50) =    275668ns
+WARN  - target=1.000000 > max=0.682538)
